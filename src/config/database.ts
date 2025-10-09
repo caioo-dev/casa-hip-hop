@@ -8,7 +8,7 @@ export const config: Knex.Config = {
     host: "localhost",
     user: "postgres",
     password: "P@ssW0rd",
-    database: "db_vsd",
+    database: "db_nome",
   },
   migrations: {
     tableName: "knex_migrations",
