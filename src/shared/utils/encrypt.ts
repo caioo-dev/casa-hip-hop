@@ -1,5 +1,5 @@
+import * as bcrypt from "bcrypt"
 import { env } from "../env/environments"
-import bcrypt from "bcrypt"
 
 export async function generateHash(password: string): Promise<string> {
   return await bcrypt.hash(password, env.SALT_RESULT)

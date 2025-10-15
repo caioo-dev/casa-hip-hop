@@ -1,4 +1,4 @@
-import { generateHash } from "src/shared/utils/encrypt"
+import { generateHash } from "../../../shared/utils/encrypt"
 import type { IUserDTO } from "../Dtos/user.dto"
 import type { IUsersRepository } from "../Repositories/users.interface"
 
