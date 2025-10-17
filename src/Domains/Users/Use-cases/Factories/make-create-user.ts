@@ -1,7 +1,7 @@
 import { CreateUser } from "../create-user"
 import { UsersRepository } from "../../Repositories/knex/users.repository"
 
-export function createUserFactory() {
+export function makeCreateUser() {
   const usersRepository = new UsersRepository()
   const createUser = new CreateUser(usersRepository)
 

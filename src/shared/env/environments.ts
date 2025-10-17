@@ -13,7 +13,8 @@ const envSchema = z.object({
   DB_MIN_POOL: z.coerce.number(),
   DB_MAX_POOL: z.coerce.number(),
   SALT_RESULT: z.coerce.number().default(10),
-  JWT_SECRET: z.string().min(1),
+  JWT_SECRET: z.string(),
+  JWT_EXPIRES_IN: z.string(),
 })
 
 const _env = envSchema.safeParse(process.env)

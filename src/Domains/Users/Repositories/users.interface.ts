@@ -1,6 +1,7 @@
-import type { IUserDTO } from "../Dtos/user.dto"
+import type { IUserRequestDTO } from "../Dtos/user/user-request.dto"
+import type { IUserResponseDTO } from "../Dtos/user/user-response.dto"
 
 export interface IUsersRepository {
-  create(user: IUserDTO): Promise<void>
-  getByEmail(email: string): Promise<IUserDTO | null>
+  create(user: IUserRequestDTO): Promise<void>
+  getByEmail(email: string): Promise<IUserResponseDTO | null>
 }

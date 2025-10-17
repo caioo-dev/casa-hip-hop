@@ -1,20 +1,20 @@
-import type { FastifyReply, FastifyRequest } from "fastify"
-
+import type { FastifyRequest, FastifyReply } from "fastify"
 import { z } from "zod"
-import { createUserFactory } from "../../Use-cases/Factories/make-create-user"
+
+import { makeCreateUser } from "../../Use-cases/Factories/make-create-user"
 
 export async function createUser(request: FastifyRequest, reply: FastifyReply) {
-  const createUserSchema = z.object({
+  const schema = z.object({
     name: z.string(),
     email: z.string().email(),
     password: z.string(),
   })
 
-  const { name, email, password } = createUserSchema.parse(request.body)
+  const { name, email, password } = schema.parse(request.body)
 
-  const createUser = createUserFactory()
+  const createUser = makeCreateUser()
 
   await createUser.execute({ name, email, password })
 
-  return reply.status(201).send("Criação de usuario")
+  return reply.status(201).send({ message: "User created" })
 }
